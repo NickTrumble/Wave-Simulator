@@ -1,0 +1,33 @@
+<!DOCTYPE html>    
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Wave Emulator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="menu">
+            <h1 class="title">Wave Emulator</h1>
+            <div id="playback">
+                <h2 class="subtitle">Playback</h2>
+                <button id="Resume">Resume Simulation</button>
+                <button id="Pause">Pause Simulation</button>
+            </div>
+            <div id="settings">
+                <h2 class="subtitle">Settings</h2>
+                <!-- add playback settings for noise -->
+                 <div id="grid">
+                    <label for="octaves">Octaves</label>
+                    <input id="octaves" type="number" min="1" step="1" value="4">
+                    <label for="persistence">persistence</label>
+                    <input id="persistence" type="number" min="0" step="0.1" value="0.5">
+                 </div>
+            </div>
+        </div>
+        <div id="drawing">
+
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>
