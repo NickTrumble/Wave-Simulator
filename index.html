@@ -18,10 +18,12 @@
                 <h2 class="subtitle">Settings</h2>
                 <!-- add playback settings for noise -->
                  <div id="grid">
-                    <label for="octaves">Octaves</label>
+                    <label for="octaves">octaves</label>
                     <input id="octaves" type="number" min="1" step="1" value="4">
                     <label for="persistence">persistence</label>
                     <input id="persistence" type="number" min="0" step="0.1" value="0.5">
+                    <label for="rotation">rotation</label>
+                    <input id="rotation", type="number", min="0", max="180", step="0.1", value="75">
                  </div>
             </div>
         </div>
@@ -29,5 +31,6 @@
             <canvas id="Canvas"></canvas>
         </div>
     </body>
+    <script src="simplex.js"></script>
     <script src="script.js"></script>
 </html>
