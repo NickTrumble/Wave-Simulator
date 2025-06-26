@@ -11,7 +11,6 @@ class SimplexNoise {
             this.p[i] = i;
         }
 
-        // Shuffle using seed (basic LCG)
         const random = this._makeRandom(seed);
         for (let i = 255; i > 0; i--) {
             const j = Math.floor(random() * (i + 1));
@@ -66,11 +65,9 @@ class SimplexNoise {
         n1 = (t1 < 0) ? 0 : (t1 * t1) * (t1 * t1) * this._dot(this.grad3[gi1], x1, y1);
         n2 = (t2 < 0) ? 0 : (t2 * t2) * (t2 * t2) * this._dot(this.grad3[gi2], x2, y2);
 
-        // Scale factor to keep result roughly in [-1,1]
         return 70.0 * (n0 + n1 + n2);
     }
 
-    // Fractal noise with octaves and persistence, returns value in [0,1]
     fractalNoise2D(x, y, octaves = 4, persistence = 0.5) {
         let total = 0;
         let frequency = 1;
@@ -84,7 +81,7 @@ class SimplexNoise {
             frequency *= 2;
         }
 
-        return total / maxAmplitude; // Normalize to [0,1]
+        return total / maxAmplitude;
     }
 
     _dot(g, x, y) {
@@ -92,7 +89,6 @@ class SimplexNoise {
     }
 
     _makeRandom(seed) {
-        // Simple LCG for repeatable pseudo-randomness
         let s = seed || 0;
         return function () {
             s = (s * 16807) % 2147483647;
