@@ -1,5 +1,5 @@
 // simplex-noise.js
-class SimplexNoise {
+export default class SimplexNoise {
     constructor(seed = 0) {
         this.grad3 = [
             [1,1], [-1,1], [1,-1], [-1,-1],
