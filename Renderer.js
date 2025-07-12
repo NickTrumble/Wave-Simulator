@@ -15,8 +15,8 @@ export default class Renderer {
         this.state.angle += this.settings.rotateSpeed;
         this.state.pixelOffset.x += this.settings.movement;
         this.state.rMatrix = this.generateMatrix(this.state.angle);
-        for (let i = 0; i < this.state.size - 1; i++) {
-            for (let j = 0; j < this.state.size - 1; j++) {
+        for (let i = 0; i < this.settings.size; i++) {
+            for (let j = 0; j < this.settings.size; j++) {
                 let points = [
                     this.pointCalc({ x: i, y: j }),
                     this.pointCalc({ x: i + 1, y: j }),
@@ -39,9 +39,9 @@ export default class Renderer {
     };
 
     generate2DNoise() {
-        let array = Array.from({ length: this.state.size }, () => Array.from({ length: this.state.size }, () => 0.5));
-        for (let i = 0; i < this.state.size; i++) {
-            for (let j = 0; j < this.state.size; j++) {
+        let array = Array.from({ length: this.settings.size + 1}, () => Array.from({ length: this.settings.size + 1 }, () => 0.5));
+        for (let i = 0; i < this.settings.size + 1; i++) {
+            for (let j = 0; j < this.settings.size + 1; j++) {
                 array[i][j] = this.state.simplex.fractalNoise2D((i + this.state.pixelOffset.x) / 10,
                     (j + this.state.pixelOffset.y) / 10, this.settings.octaves, this.settings.persistence);
             }
@@ -49,7 +49,7 @@ export default class Renderer {
         return array;
     }
 
-    pointCalc(V, half = this.state.size / 2) {
+    pointCalc(V, half = this.settings.size / 2) {
         let xVec = V.x - half;
         let yVec = V.y - half;
 

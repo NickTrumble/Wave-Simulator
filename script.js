@@ -12,7 +12,6 @@ export const settings = new Settings();
 export let ctx = canvas.getContext('2d');
 export const state = {
     angle: 75,
-    size: 9,
     xOffset: 0,
     yOffset: 0,
     tileWidth: 0,
@@ -48,6 +47,7 @@ pauseButton.addEventListener('click', () => state.play = false);
 settingsDiv.addEventListener('input', function(e){
     if (e.target.tagName.toLowerCase() === 'input'){
         updateSettings();
+        resizeCanvas();
     }
 })
 
@@ -66,10 +66,11 @@ function resizeCanvas(){
 
     ctx.setTransform(scale, 0, 0, scale, 0, 0);
 
-    state.tileWidth = canvas.width / (2 * state.size);
-    state.tileHeight = state.tileWidth / 2;
-    state.xOffset = canvas.width / 3;
-    state.yOffset = canvas.height / 3;
+    state.tileWidth = canvas.width / settings.size;
+    state.tileHeight = state.tileWidth / 3;
+
+    state.xOffset = canvas.width / 2;
+    state.yOffset = canvas.height / 2;
 }
 
 init();

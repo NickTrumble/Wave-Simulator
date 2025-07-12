@@ -13,3 +13,4 @@ optimise
 different grids e.g. triangles 
 deformation animation
 presets
+cubes instead of vertices
