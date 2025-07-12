@@ -54,6 +54,18 @@ body{
     width: 55px;
 }
 
+.radio{
+    display: flex;
+    margin: 0;
+}
+
+.radio label{
+margin: 0 0 0 15px;
+align-items: center;
+display: flex;
+height: 25px;
+}
+
 #drawing{
     border: black solid 3px;
     border-radius: 5px;
